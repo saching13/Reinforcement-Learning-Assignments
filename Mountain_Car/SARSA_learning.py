@@ -19,7 +19,7 @@ GAMMA = 0.98  # Discount factor
 NUM_DISCRETE_BINS = 30  # Number of bins to Discretize each observation dim
 
 
-class Q_Learner(object):
+class SARSA_Learner(object):
     def __init__(self, env):
         self.obs_shape = env.observation_space.shape
         self.obs_high = env.observation_space.high
@@ -93,7 +93,7 @@ def test(agent, env, policy):
 
 if __name__ == "__main__":
     env = gym.make('MountainCar-v0')
-    agent = Q_Learner(env)
+    agent = SARSA_Learner(env)
     learned_policy = train(agent, env)
     # Use the Gym Monitor wrapper to evalaute the agent and record video
     gym_monitor_path = "./gym_monitor_output"
